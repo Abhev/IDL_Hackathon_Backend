@@ -55,3 +55,4 @@ The Backend Agent handles crucial aspects of the debate simulation, including:
 1.  The **frontend** sends a request to the backend, initiating a debate with a chosen format and motion.
 2.  The **Relevance AI Agent** (VISIBLE AS RAI FILE) receives this request.
 3.  Based on its **Prompting** and **Knowledge**, the Agent determines the next logical action (e.g., generate
+   
