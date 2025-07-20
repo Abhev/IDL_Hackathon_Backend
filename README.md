@@ -23,13 +23,13 @@ This Agent operates as a **no-code** component, primarily driven by:
 
 The Agent leverages **two powerful tools** to execute its debate-specific tasks:
 
-1.  **Custom Code Tool:**
+1.  **Custom Code Tool:** -- VISIBLE AS PYTHON FILE
     * This tool encapsulates specific, custom-developed logic that was necessary for highly specialized debate functions, which might include:
         * Complex timer management and phase transitions for specific debate formats.
         * Integration with external APIs if required for specific data retrieval not handled by the low-code tool.
     * This tool demonstrates how targeted programming can augment an otherwise no-code agent.
 
-2.  **Low-Code Tool:**
+2.  **Low-Code Tool:** -- VISIBLE AS RAI FILE
     * This tool handles more standardized or repetitive tasks, built efficiently using Relevance AI's low-code capabilities. This might include:
         * Standard text generation and formatting based on debate roles.
         * Basic motion parsing and topic analysis.
@@ -53,5 +53,5 @@ The Backend Agent handles crucial aspects of the debate simulation, including:
 ## How it Works (High-Level)
 
 1.  The **frontend** sends a request to the backend, initiating a debate with a chosen format and motion.
-2.  The **Relevance AI Agent** receives this request.
+2.  The **Relevance AI Agent** (VISIBLE AS RAI FILE) receives this request.
 3.  Based on its **Prompting** and **Knowledge**, the Agent determines the next logical action (e.g., generate
