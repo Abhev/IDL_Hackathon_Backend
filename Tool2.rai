@@ -1,0 +1,97 @@
+{
+  "_id": "65646132e250-4c0b-aeb7-60c01a951ad0_-_acc991e6-d933-4742-bcc6-f8ab5f79d4b6_-_latest",
+  "creator_first_name": "Tech",
+  "creator_last_name": "Outfitsium",
+  "creator_user_id": "b9330c92-a09a-48f3-86df-b19631c7d119",
+  "description": "",
+  "insert_date_": "2025-07-19T02:35:12.091Z",
+  "owner_user_id": "b9330c92-a09a-48f3-86df-b19631c7d119",
+  "project": "65646132e250-4c0b-aeb7-60c01a951ad0",
+  "public": false,
+  "studio_id": "acc991e6-d933-4742-bcc6-f8ab5f79d4b6",
+  "title": "LLM-meta-debate",
+  "update_date_": "2025-07-19T04:17:09.135Z",
+  "version": "latest",
+  "active_version_id": "ccf71505-1672-4cfe-be2c-629e812d9c17",
+  "metadata": {
+    "last_run_date": "2025-07-19T04:11:57.389Z"
+  },
+  "draft_version_id": "83506bd5-5f7b-444c-a98c-8d2aa215c3d7",
+  "share_styles": {
+    "primary_color": "#685FFF",
+    "hide_guidance_tip": false,
+    "guidance_tip_text": "👆 Fill in the options above to get started...",
+    "cta_text": "Run tool",
+    "cta_icon": "pd/play",
+    "hide_logo": false,
+    "selected_format": "shareable-link"
+  },
+  "transformations": {
+    "steps": [
+      {
+        "transformation": "prompt_completion",
+        "name": "llm",
+        "output": {
+          "answer": "{{answer}}"
+        },
+        "params": {
+          "prompt": "You are a top tier prompt engineer being paid massive amounts of money everywhere for your skillset, You understand how to prompt Gemini Models perfectly and get the most optimized response from them, You also know how to make prompts such that AI does not hallucinate while responding back.  \n  \nYour recent most project is to build a prompt to give to Gemini Flash models to generate a fairly structured speech for a debate, the time limit of the speech is {{number}} and the \n\ntopic is {{text_1}}\n\nand you have to prompt the model to give a speech as {{text}}  \n",
+          "model": "openai-gpt-4.1"
+        }
+      },
+      {
+        "transformation": "prompt_completion",
+        "name": "llm_1",
+        "output": {
+          "answer": "{{answer}}"
+        },
+        "params": {
+          "model": "open-router-google/gemini-2.5-pro",
+          "prompt": "{{llm.answer}}  \n  \nNote: Do include data in your speeches and make the speeches really accurate and ensure no opinionated information from the net seeps into the speech."
+        }
+      }
+    ]
+  },
+  "params_schema": {
+    "properties": {
+      "text": {
+        "type": "string",
+        "order": 1,
+        "title": "Speech Type",
+        "description": "What kind of speech this is (Whip, Opposition etc etc)",
+        "metadata": {}
+      },
+      "number": {
+        "type": "number",
+        "min": 0,
+        "value": 0,
+        "order": 2,
+        "title": "Time Limit per Speech",
+        "description": "Total time it would take for a model to say this",
+        "metadata": {}
+      },
+      "text_1": {
+        "type": "string",
+        "order": 3,
+        "title": "Topic of Debate",
+        "description": "The agenda of the motion",
+        "metadata": {}
+      }
+    },
+    "required": [
+      "text",
+      "number",
+      "text_1"
+    ],
+    "type": "object"
+  },
+  "output_schema": {},
+  "state_mapping": {
+    "text": "params.text",
+    "llm": "steps.llm.output",
+    "number": "params.number",
+    "text_1": "params.text_1",
+    "llm_1": "steps.llm_1.output"
+  },
+  "params": {}
+}
